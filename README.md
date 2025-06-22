@@ -46,7 +46,7 @@ npm run dev.
 
 2.cd frontend,
 npm install,
-npm run dev,
+npm run dev.
 
 
 
