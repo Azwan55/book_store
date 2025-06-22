@@ -8,13 +8,13 @@ This app allows users to **add**, **update**, **delete**, and **view** books ava
 ## 🛠️ Features
 
 - ➕ Add new books with title, author, genre, and other details.
-- ✏️ Update existing book information.
+- ✏️ Update existing book informations.
 - ❌ Delete books from the store.
 - 📖 View a list of all available books.
 - 🌐 RESTful API integration between frontend and backend.
 
 ---
-
+S
 ## 📦 Tech Stack
 
 - **Frontend:** React.js, Axios, Tailwind CSS 
