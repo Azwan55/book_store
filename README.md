@@ -14,7 +14,7 @@ This app allows users to **add**, **update**, **delete**, and **view** books ava
 - 🌐 RESTful API integration between frontend and backend.
 
 ---
-S
+
 ## 📦 Tech Stack
 
 - **Frontend:** React.js, Axios, Tailwind CSS 
@@ -40,13 +40,13 @@ Create a `config.js` file in the `backend` folder with the following content:
 export const PORT=5555, export const mongoDBURL=your mongodb url.
 
 ## 3. Install and run your app.
-cd backend
-npm install
-npm run dev
+1.cd backend,
+npm install,
+npm run dev.
 
-cd frontend
-npm install
-npm run dev
+2.cd frontend,
+npm install,
+npm run dev,
 
 
 
