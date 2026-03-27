@@ -3,12 +3,10 @@ import { PiBookOpenTextLight } from 'react-icons/pi';
 import { BiUserCircle, BiShow, BiInfoCircle, } from 'react-icons/bi';
 import { AiOutlineEdit, } from 'react-icons/ai';
 import { MdOutlineDelete } from 'react-icons/md';
-import { useState } from 'react';
-import BookModal from './BookModal';
+
 
 
 const BookSingleCard = ({ book }) => {
-    // const [showModal, setShowModal] = useState(false);
 
 
     return (
@@ -35,7 +33,7 @@ const BookSingleCard = ({ book }) => {
 
             <div className='flex justify-between items-center gap-x-2 mt-4 p-4 '>
 
-               
+
 
                 <Link to={`/books/details/${book._id}`}>
                     <BiInfoCircle className='text-2xl text-green-800 hover:text-black' />
@@ -49,10 +47,7 @@ const BookSingleCard = ({ book }) => {
                     <MdOutlineDelete className='text-2xl text-red-600 hover:text-black' />
                 </Link>
             </div>
-            {/* {
-                showModal &&
-                <BookModal book={book} onClose={() => setShowModal(false)} />
-            } */}
+
 
         </div>
     )

@@ -36,8 +36,7 @@ Follow these steps to set up and run the project on your local machine.
 
 ## 2. Configure MongoDB URL and Port Number
 
-Create a `config.js` file in the `backend` folder with the following content:
-export const PORT=5555, export const mongoDBURL=your mongodb url.
+Create and Setup the port and mongodburl in .env file inside backend folder
 
 ## 3. Install and run your app.
 1.cd backend,
