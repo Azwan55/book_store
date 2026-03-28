@@ -22,7 +22,7 @@ const Home = () => {
   }
 
   setLoading(true);
-  axios.get('http://localhost:5555/books')
+axios.get(`${import.meta.env.VITE_BACKEND_URL}/books`)
     .then((response) => {
       setBooks(response.data.data);
       setLoading(false);
@@ -31,18 +31,6 @@ const Home = () => {
       setLoading(false);
     });
 }, []);
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   axios.get('http://localhost:5555/books')
-  //     .then((response) => {
-  //       setBooks(response.data.data);
-  //       setLoading(false);
-  //     }).catch((error) => {
-  //       console.log(error);
-  //       setLoading(false);
-  //     });
-  // }, []);
 
   return (
     <div className="relative h-screen w-full overflow-hidden">

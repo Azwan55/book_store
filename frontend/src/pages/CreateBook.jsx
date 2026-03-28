@@ -21,7 +21,7 @@ export const CreateBook = () => {
     };
     setLoading(true);
     axios
-      .post('http://localhost:5555/books', data)
+     .post(`${import.meta.env.VITE_BACKEND_URL}/books`, data)     
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book created successfully', { variant: 'success' });
@@ -29,7 +29,6 @@ export const CreateBook = () => {
       })
       .catch((error) => {
         setLoading(false);
-        // alert('An error happen,please check console');
         enqueueSnackbar('An error occurred while creating the book, Please check console', { variant: 'error' });
         console.log(error);
 

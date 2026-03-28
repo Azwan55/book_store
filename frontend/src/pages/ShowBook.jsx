@@ -15,7 +15,7 @@ export const ShowBook = () => {
 
     setLoading(true);
     axios
-      .get(`http://localhost:5555/books/${id}`)
+     .get(`${import.meta.env.VITE_BACKEND_URL}/books/${id}`)     
       .then((response) => {
         console.log('Response Data:', response.data);
         setBook(response.data);

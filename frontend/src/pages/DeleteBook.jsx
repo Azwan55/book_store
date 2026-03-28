@@ -14,14 +14,13 @@ export const DeleteBook = () => {
   const handleDeleteBook = () => {
     setLoading(true);
     axios
-      .delete(`http://localhost:5555/books/${id}`)
-      .then(() => {
+   .delete(`${import.meta.env.VITE_BACKEND_URL}/books/${id}`)   
+     .then(() => {
         setLoading(false);
         enqueueSnackbar('Book deleted successfully', { variant: 'success' });
         navigate('/');
       }).catch((error) => {
         setLoading(false);
-        // alert('An error happened, please check console');
         enqueueSnackbar('An error occurred while deleting the book, Please check console', { variant: 'error' });
         console.log(error);
       })
