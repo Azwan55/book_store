@@ -1,59 +1,90 @@
-import { useNavigate } from 'react-router-dom';
-import { Button } from 'primereact/button';
-import { Menubar } from 'primereact/menubar';
+import { useEffect, useRef, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { getToken, clearToken } from '../utils/auth';
 import '../styles/navbar.css';
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const userTriggerRef = useRef(null);
+  const userMenuPanelRef = useRef(null);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const user = JSON.parse(localStorage.getItem('user') || '{}');
   const token = getToken();
 
+  useEffect(() => {
+    if (!isUserMenuOpen) return;
+
+    const handleOutsideClick = (event) => {
+      const clickedTrigger = userTriggerRef.current?.contains(event.target);
+      const clickedMenu = userMenuPanelRef.current?.contains(event.target);
+
+      if (!clickedTrigger && !clickedMenu) {
+        setIsUserMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick, true);
+    document.addEventListener('touchstart', handleOutsideClick, true);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick, true);
+      document.removeEventListener('touchstart', handleOutsideClick, true);
+    };
+  }, [isUserMenuOpen]);
+
   const handleLogout = () => {
+    setIsUserMenuOpen(false);
     clearToken();
     localStorage.removeItem('user');
     navigate('/login');
   };
 
-  const items = [
-    {
-      label: '📚 Library',
-      icon: 'pi pi-fw pi-home',
-      command: () => navigate('/'),
-    },
-  ];
+  return (
+    <header className="navbar-pro">
+      <div className="navbar-pro__inner">
+        <div className="brand">
+          <nav className="nav-links">
+          <NavLink
+            to='/'
+            aria-label='Go to Home'
+            title='Home'
+            className={({ isActive }) => `nav-link nav-link--icon ${isActive ? 'nav-link--active' : ''}`}
+          >
+            <i className="pi pi-home" />
+          </NavLink>
+        </nav>
+          <span className="brand__icon">📚</span>
+          <span className="brand__text">BookStore</span>
+        </div>
+        <div className="navbar-end">
+          {token && user.name && (
+            <>
+              <button
+                type="button"
+                ref={userTriggerRef}
+                className="user-pill user-pill--clickable"
+                onClick={() => setIsUserMenuOpen((prev) => !prev)}
+                aria-label="Open user menu"
+                aria-haspopup="menu"
+                aria-controls="user_menu"
+                aria-expanded={isUserMenuOpen}
+              >
+                <i className="pi pi-user user-icon-btn" aria-hidden="true" />
+                <span className="username-text">{user.name}</span>
+              </button>
 
-  const end = (
-    <div className="navbar-end">
-      {token && user.name ? (
-          <Button
-            label="Logout"
-            icon="pi pi-sign-out"
-            onClick={handleLogout}
-            severity="danger"
-            text
-            size="small"
-          />
-      ) : (
-        <>
-          <Button
-            label="Login"
-            icon="pi pi-sign-in"
-            onClick={() => navigate('/login')}
-            text
-            size="small"
-          />
-          <Button
-            label="Register"
-            icon="pi pi-user-plus"
-            onClick={() => navigate('/register')}
-            text
-            size="small"
-          />
-        </>
-      )}
-    </div>
+              {isUserMenuOpen && (
+                <div ref={userMenuPanelRef} id="user_menu" className="user-dropdown" role="menu" aria-label="User menu">
+                  <button type="button" className="user-dropdown__item" onClick={handleLogout} role="menuitem">
+                    <i className="pi pi-sign-out" aria-hidden="true" />
+                    <span>Logout</span>
+                  </button>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      </div>
+    </header>
   );
-
-  return <Menubar model={items} end={end} className="navbar-custom" />;
 }

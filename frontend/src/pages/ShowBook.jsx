@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { Card } from 'primereact/card';
 import { Divider } from 'primereact/divider';
-import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 import bgImg from '../assets/pngtree-bookstore-image_834987.jpg';
 
@@ -28,7 +27,7 @@ export const ShowBook = () => {
 
   return (
     <div
-      className='min-h-screen bg-cover bg-center bg-no-repeat px-4 py-8'
+      className='min-h-screen bg-cover bg-center bg-no-repeat px-3 py-4 md:px-4 md:py-8'
       style={{ backgroundImage: `linear-gradient(rgba(15,23,42,0.7), rgba(15,23,42,0.7)), url(${bgImg})` }}
     >
       <div className='mx-auto max-w-4xl'>
@@ -38,13 +37,13 @@ export const ShowBook = () => {
           </div>
         ) : (
           <Card className='bg-slate-950/90 border border-slate-800 shadow-2xl text-slate-100'>
-            <div className='px-6 py-8'>
+            <div className='px-4 py-5 md:px-6 md:py-8'>
               <div className='flex flex-col gap-4 md:flex-row md:items-center md:justify-between'>
                 <div>
-                  <p className='text-5xl uppercase font=bold tracking-[0.3em] text-amber-300'>Book Details</p>
-                  <h1 className='mt-3 text-4xl font-semibold text-white'>{book?.title || 'Untitled Book'}</h1>
+                  <p className='text-5xl md:text-2xl uppercase font-extrabold tracking-[0.22em] md:tracking-[0.3em] text-amber-300'>Book Details</p>
+                  <h1 className='mt-2 md:mt-3 text-2xl md:text-4xl font-semibold text-white break-words'>{book?.title || 'Untitled Book'}</h1>
                 </div>
-                <div className='rounded-3xl bg-slate-900/80 px-5 py-3 text-right'>
+                <div className='rounded-3xl bg-slate-900/80 px-4 py-3 text-left md:text-right'>
                   <p className='text-xs uppercase tracking-[0.3em] text-slate-400'>Added</p>
                   <p className='mt-2 text-lg font-semibold text-white'>
                     {book?.createdAt ? new Date(book.createdAt).toLocaleDateString() : 'Unknown'}
@@ -54,18 +53,18 @@ export const ShowBook = () => {
 
               <Divider className='my-6 border-slate-700' />
 
-              <div className='grid gap-6 md:grid-cols-2'>
+              <div className='grid gap-4 md:gap-6 md:grid-cols-2'>
                 <div className='space-y-4 rounded-3xl border border-slate-800 bg-slate-900/80 p-5'>
                   <p className='text-sm uppercase tracking-[0.25em] text-slate-400'>Author</p>
-                  <p className='text-xl font-semibold text-white'>{book?.author || 'Unknown'}</p>
+                  <p className='text-lg md:text-xl font-semibold text-white break-words'>{book?.author || 'Unknown'}</p>
                 </div>
                 <div className='space-y-4 rounded-3xl border border-slate-800 bg-slate-900/80 p-5'>
                   <p className='text-sm uppercase tracking-[0.25em] text-slate-400'>Publish Year</p>
-                  <p className='text-xl font-semibold text-white'>{book?.publishYear || 'Unknown'}</p>
+                  <p className='text-lg md:text-xl font-semibold text-white'>{book?.publishYear || 'Unknown'}</p>
                 </div>
                 <div className='space-y-4 rounded-3xl border border-slate-800 bg-slate-900/80 p-5'>
                   <p className='text-sm uppercase tracking-[0.25em] text-slate-400'>Last Updated</p>
-                  <p className='text-xl font-semibold text-white'>
+                  <p className='text-lg md:text-xl font-semibold text-white'>
                     {book?.updatedAt ? new Date(book.updatedAt).toLocaleDateString() : 'Unknown'}
                   </p>
                 </div>

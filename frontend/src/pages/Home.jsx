@@ -169,12 +169,35 @@ export default function Home() {
           paginator
           rows={10}
           rowsPerPageOptions={[5, 10, 20, 50]}
+          filterDisplay="menu"
           responsiveLayout="scroll"
           className="books-table"
           emptyMessage="No books found"
         >
-          <Column field="title" header="Title" sortable filter style={{ minWidth: '200px' }} />
-          <Column field="author" header="Author" sortable filter style={{ minWidth: '150px' }} />
+          <Column
+            field="title"
+            header="Title"
+            sortable
+            filter
+            showFilterMatchModes={false}
+            showFilterOperator={false}
+            showAddButton={false}
+            filterMatchMode="contains"
+            filterPlaceholder="Filter title"
+            style={{ minWidth: '200px' }}
+          />
+          <Column
+            field="author"
+            header="Author"
+            sortable
+            filter
+            showFilterMatchModes={false}
+            showFilterOperator={false}
+            showAddButton={false}
+            filterMatchMode="contains"
+            filterPlaceholder="Filter author"
+            style={{ minWidth: '150px' }}
+          />
           <Column field="publishYear" header="Year" sortable style={{ width: '100px' }} />
           <Column body={actionBodyTemplate} header="Actions" style={{ width: '150px', textAlign: 'center' }} />
         </DataTable>
