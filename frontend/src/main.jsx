@@ -11,7 +11,7 @@ import{SnackbarProvider} from 'notistack'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-  <SnackbarProvider >
+  <SnackbarProvider anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
     <App />
   </SnackbarProvider>
   </BrowserRouter>,

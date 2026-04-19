@@ -28,7 +28,7 @@ export default function Home() {
     
     // Check if user data exists
     const storedUser = JSON.parse(localStorage.getItem('user') || '{}');
-    if (!storedUser || !storedUser.id) {
+    if (!storedUser?.id) {
       console.log("User data missing, redirecting to login");
       clearToken();
       navigate('/login');
@@ -45,7 +45,7 @@ export default function Home() {
       const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
       console.log("currentUser : ", currentUser);
       
-      if (!currentUser || !currentUser.id) {
+      if (!currentUser?.id) {
         console.log("User data missing, redirecting to login");
         clearToken();
         navigate('/login');

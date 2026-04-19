@@ -43,16 +43,18 @@ export default function Navbar() {
     <header className="navbar-pro">
       <div className="navbar-pro__inner">
         <div className="brand">
-          <nav className="nav-links">
-          <NavLink
-            to='/'
-            aria-label='Go to Home'
-            title='Home'
-            className={({ isActive }) => `nav-link nav-link--icon ${isActive ? 'nav-link--active' : ''}`}
-          >
-            <i className="pi pi-home" />
-          </NavLink>
-        </nav>
+          {token && user.name && (
+            <nav className="nav-links">
+              <NavLink
+                to='/'
+                aria-label='Go to Home'
+                title='Home'
+                className={({ isActive }) => `nav-link nav-link--icon ${isActive ? 'nav-link--active' : ''}`}
+              >
+                <i className="pi pi-home" />
+              </NavLink>
+            </nav>
+          )}
           <span className="brand__icon">📚</span>
           <span className="brand__text">BookStore</span>
         </div>

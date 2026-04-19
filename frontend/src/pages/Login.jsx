@@ -49,7 +49,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: `url(${bgImg})` }}>
-      <div className="backdrop-brightness-75 min-h-screen flex items-center justify-center px-4 py-10">
+      <div className="backdrop-brightness-75 min-h-screen flex items-start justify-center px-4 pt-20 pb-10 md:pt-24">
         <div className="w-full max-w-md rounded-3xl bg-white/95 p-8 shadow-2xl">
           <h1 className="mb-6 text-center text-3xl font-bold text-slate-800">Sign In</h1>
           <form className="p-fluid" onSubmit={handleLogin}>
