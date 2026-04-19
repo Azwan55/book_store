@@ -10,8 +10,13 @@ const bookSchema = mongoose.Schema(
             type: String,
             required: true,
         },
-          publishYear: {
+        publishYear: {
             type: Number,
+            required: true,
+        },
+        created_by: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
             required: true,
         },
     },

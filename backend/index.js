@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bookRoute from './routes/booksRoute.js';
+import authRoute from './routes/authRoute.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
@@ -17,6 +18,7 @@ app.use(cors({
     origin: "*"
 }));
 
+app.use('/auth', authRoute);
 app.use('/books', bookRoute);
 
 if (!mongoDBURL) {

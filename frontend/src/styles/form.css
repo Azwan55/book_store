@@ -1,0 +1,144 @@
+.form-container {
+  padding: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.form-card {
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border-radius: 12px !important;
+  padding: 40px !important;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-header h1 {
+  color: #667eea;
+  margin: 0 0 10px 0;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.form-subtitle {
+  color: #999;
+  font-size: 14px;
+  margin: 0;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-card .p-divider {
+  margin: 25px 0;
+}
+
+.form-card .p-field {
+  margin-bottom: 0;
+}
+
+.form-card label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-card label.required::after {
+  content: ' *';
+  color: #e74c3c;
+}
+
+.form-card .p-inputtext,
+.form-card .p-inputnumber,
+.form-card .p-inputtextarea {
+  width: 100%;
+  padding: 12px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 6px !important;
+  font-size: 14px;
+}
+
+.form-card .p-inputtext:focus,
+.form-card .p-inputnumber:focus,
+.form-card .p-inputtextarea:focus {
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25) !important;
+}
+
+.form-card .p-inputnumber input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button-group .p-button {
+  flex: 1;
+  min-width: 150px;
+  padding: 12px 20px !important;
+  border-radius: 6px !important;
+  font-weight: 600;
+}
+
+.delete-card {
+  text-align: center;
+}
+
+.delete-card h3 {
+  color: #667eea;
+  font-size: 20px;
+  margin: 15px 0 5px;
+  font-weight: 600;
+}
+
+.delete-card p {
+  color: #666;
+  margin: 10px 0;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 18px;
+  color: #667eea;
+  font-weight: 600;
+}
+
+.text-gray-500 {
+  color: #999;
+  font-size: 12px;
+  display: block;
+  margin-top: 5px;
+}
+
+.p-skeleton {
+  margin-bottom: 20px;
+}
+

@@ -1,0 +1,31 @@
+.navbar-custom {
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: none !important;
+}
+
+.navbar-custom .p-menubar-root-list > li > a {
+  color: white !important;
+  font-weight: 600;
+}
+
+.navbar-end {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-right: 20px;
+}
+
+.user-name {
+  color: white;
+  font-weight: 600;
+  padding: 0 10px;
+}
+
+.navbar-custom .p-button-text {
+  color: white !important;
+}
+
+.navbar-custom .p-button-text:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
